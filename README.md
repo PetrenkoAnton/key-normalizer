@@ -17,7 +17,7 @@
 
 ### Requirements
 
-- php 8.0 or higher
+- php 7.4 or higher
 
 ### Composer
 
