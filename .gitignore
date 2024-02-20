@@ -1,4 +1,7 @@
 .idea
-.env
+vendor
+docker/.env
 .phpunit.result.cache
-./vendor/
+tests/_output
+!tests/_output/.gitkeep
+composer.lock
