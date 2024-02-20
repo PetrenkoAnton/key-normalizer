@@ -31,9 +31,10 @@ composer require petrenkoanton/key-normalizer
 
 #### [KeyNormalizer](./src/KeyNormalizer.php)
 
-| Method                     | Exception |
-|:---------------------------|:----------|
-| camel(string $key): string | -         |
+| Method                           | Exception |
+|:---------------------------------|:----------|
+| toCamelCase(string $key): string | -         |
+| toSnakeCase(string $key): string | -         |
 
 ## Usage
 
@@ -42,7 +43,10 @@ composer require petrenkoanton/key-normalizer
 
 declare(strict_types=1);
 
-//...
+use KeyNormalizer\KeyNormalizer;
+
+KeyNormalizer::toCamelCase('test_test_test'); // testTestTest
+KeyNormalizer::toSnakeCase('testTestTest'); // test_test_test
 ```
 
 ## For developers

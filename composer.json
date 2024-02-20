@@ -1,8 +1,8 @@
 {
   "name": "petrenkoanton/key-normalizer",
-  "description": "Key normalizer helper",
+  "description": "Converts snake_case to camelCase and vice versa",
   "type": "library",
-  "keywords": ["helper", "camel case", "snake case", "pascal case"],
+  "keywords": ["helper", "camel case", "snake case"],
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
@@ -14,7 +14,7 @@
     }
   ],
   "require": {
-    "php": "^8.0"
+    "php": "^7.0|^8.0"
   },
   "require-dev": {
     "phpunit/phpunit": "^9.0",
@@ -49,5 +49,16 @@
     "allow-plugins": {
       "dealerdirect/phpcodesniffer-composer-installer": true
     }
+  },
+  "archive": {
+    "exclude": [
+      ".github",
+      "docker",
+      "tests",
+      "Makefile",
+      "phpcs.xml",
+      "phpunit.xml",
+      "psalm.xml"
+    ]
   }
 }

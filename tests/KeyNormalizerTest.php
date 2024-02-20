@@ -10,35 +10,58 @@ use PHPUnit\Framework\TestCase;
 class KeyNormalizerTest extends TestCase
 {
     /**
-     * @dataProvider dataProvider
+     * @dataProvider dataProviderCamel
      */
-    public function testNormalize(string $input, string $output): void
+    public function testCamel(string $input, string $expected): void
     {
-        $this->assertEquals($output, KeyNormalizer::normalize($input));
+        $this->assertEquals($expected, KeyNormalizer::toCamelCase($input));
     }
 
-    public function dataProvider(): array
+    public function dataProviderCamel(): array
     {
         return [
             [
-                'input' => 'test',
-                'output' => 'test',
+                'test',
+                'test',
             ],
             [
-                'input' => 'test_test',
-                'output' => 'testTest',
+                'test_test',
+                'testTest',
             ],
             [
-                'input' => 'test_test_test',
-                'output' => 'testTestTest',
+                'test_test_test',
+                'testTestTest',
             ],
             [
-                'input' => 'test___test___test_test',
-                'output' => 'testTestTestTest',
+                'Test_Test_test',
+                'testTestTest',
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider dataProviderSnake
+     * @group +
+     */
+    public function testSnake(string $input, string $expected): void
+    {
+        $this->assertEquals($expected, KeyNormalizer::toSnakeCase($input));
+    }
+
+    public function dataProviderSnake(): array
+    {
+        return [
+            [
+                'test',
+                'test',
             ],
             [
-                'input' => '___test___',
-                'output' => 'test',
+                'testTest',
+                'test_test',
+            ],
+            [
+                'TestTestTest',
+                'test_test_test',
             ],
         ];
     }
